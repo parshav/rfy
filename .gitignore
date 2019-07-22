@@ -1,2 +1,4 @@
 /target
 **/*.rs.bk
+/myblog/.sass-cache
+/myblog/.jekyll-metadata
