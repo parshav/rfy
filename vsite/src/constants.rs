@@ -1,0 +1,1 @@
+pub const ITEMS: &[&str; 2] = &["Home", "About"];

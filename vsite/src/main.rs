@@ -1,5 +1,7 @@
 use yew::{html, Component, ComponentLink, Html, Renderable, ShouldRender};
 
+mod constants;
+
 struct Model {}
 
 enum Msg {
@@ -26,10 +28,32 @@ impl Component for Model {
     }
 }
 
+fn row_item(text: &str) -> Html<Model> {
+    html! {
+        <td> { text } </td>
+    }
+}
+
+fn rows() -> Html<Model> {
+    html! {
+        <tr>
+            {
+                for (0..constants::ITEMS.len()).map(|item| {
+                    row_item(constants::ITEMS[item])
+                })
+            }
+        </tr>
+    }
+}
+
 impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
-            <h1> {"Hey ! "} </h1>
+            <table>
+                {
+                    rows()
+                }
+            </table>
         }
     }
 }
